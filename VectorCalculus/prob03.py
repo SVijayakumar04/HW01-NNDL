@@ -4,7 +4,21 @@ def dinvA(x):
     
     ### <--- START OF YOUR CODE
 
-    dinvA = np.array(0)
+   
+
+    A = np.array([
+        [1, x**3 + 3],
+        [x**4 + x**2 + 3, x**2 + 1]
+    ], dtype=float)
+
+    dA = np.array([
+        [0, 3*x**2],
+        [4*x**3 + 2*x, 2*x]
+    ], dtype=float)
+
+    Ainv = np.linalg.inv(A)
+    divnA = -Ainv @ dA @ Ainv
+
 
     ### END OF YOUR CODE --->
 
