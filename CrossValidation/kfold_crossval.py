@@ -15,7 +15,14 @@ def kfold_crossval(x_train,y_train,degList,K):
 
         ### <--- START OF YOUR CODE
 
-        #...
+        for j, deg in enumerate(degList):
+        beta = pf.fit(x_preval, y_preval, deg)
+
+        y_preval_pred = pf.predict(x_preval, beta)
+        y_val_pred = pf.predict(x_val, beta)
+
+        errPreVal[j, i] = pf.rmse(y_preval, y_preval_pred)
+        errVal[j, i] = pf.rmse(y_val, y_val_pred)
 
         ### END OF YOUR CODE --->
 
