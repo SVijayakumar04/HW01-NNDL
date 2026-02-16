@@ -9,8 +9,17 @@ def kfold_split(x,y,K,kcurr):
 
     ### <--- START OF YOUR CODE
 
-    idxVal = 0
-    idxPreVal = 0
+ 
+    start = kcurr * Nfold
+
+    if kcurr == K - 1:
+        end = N
+    else:
+        end = start + Nfold
+
+    idxVal = np.arange(start, end)
+    idxPreVal = np.concatenate((np.arange(0, start), np.arange(end, N)))
+
 
     ### END OF YOUR CODE --->
 
